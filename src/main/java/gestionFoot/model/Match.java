@@ -1,13 +1,35 @@
 package gestionFoot.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToOne;
+
+
 public class Match {
 	
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	@OneToOne
 	private Arbitre arbitre;
+	
+	@OneToOne
 	private Equipe equipe1;
+	
+	@OneToOne
 	private Equipe equipe2;
+	
+	@OneToOne
 	private Stade stade;
+	
+	@OneToOne
 	private Score scoreDom;
+	
+	@OneToOne
 	private Score scoreExt;
+	
 	private boolean fini = false;
 	//private Localisation loalisation;
 	
@@ -19,6 +41,7 @@ public class Match {
 		this.equipe2 = equipe2;
 		this.stade = stade;
 	}
+	public Match() {}
 	
 	public Arbitre getArbitre() {
 		return arbitre;

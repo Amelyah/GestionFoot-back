@@ -1,7 +1,9 @@
 package gestionFoot.model;
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
 
+@Entity
 public class Entraineur extends Personne {
 	
 	private double pedagogie;
@@ -20,6 +22,8 @@ public class Entraineur extends Personne {
 		this.maitriseTactique = maitriseTactique;
 	}
 
+	public Entraineur() {}
+	
 	public double getPedagogie() {
 		return pedagogie;
 	}

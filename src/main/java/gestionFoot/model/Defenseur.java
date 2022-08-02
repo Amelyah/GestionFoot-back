@@ -1,6 +1,9 @@
 package gestionFoot.model;
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Defenseur extends Joueur {
 	
 	private double tauxInterception;
@@ -12,6 +15,7 @@ public class Defenseur extends Joueur {
 		this.capaciteRelance = capaciteRelance;
 		
 	}
+	public Defenseur() {}
 
 	public double getTauxInterception() {
 		return tauxInterception;

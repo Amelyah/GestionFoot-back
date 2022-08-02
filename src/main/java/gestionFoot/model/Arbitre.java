@@ -1,6 +1,9 @@
 package gestionFoot.model;
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Arbitre extends Personne {
 	
 	protected double impartialite;
@@ -11,7 +14,8 @@ public class Arbitre extends Personne {
 		this.impartialite = impartialite;
 		
 	}
-
+	public Arbitre() {}
+	
 	public double getImpartialite() {
 		return impartialite;
 	}

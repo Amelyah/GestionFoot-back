@@ -2,6 +2,9 @@ package gestionFoot.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Attaquant extends Joueur {
 	
 	private double tauxAssist;
@@ -12,6 +15,8 @@ public class Attaquant extends Joueur {
 		super(nom, prenom, naissance, physique, technique, tactique, mental);
 		this.tauxAssist = tauxAssist;
 		this.tauxBut = tauxBut;
+	}
+	public Attaquant() {
 	}
 
 	public double getTauxAssist() {

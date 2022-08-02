@@ -2,6 +2,9 @@ package gestionFoot.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Milieu extends Joueur {
 	
 	private double tauxEspace;
@@ -13,7 +16,8 @@ public class Milieu extends Joueur {
 		this.tauxEspace = tauxEspace;
 		this.tauxTransmissionAttaquant = tauxTransmissionAttaquant;
 	}
-
+	public Milieu() {}
+	
 	public double getTauxEspace() {
 		return tauxEspace;
 	}

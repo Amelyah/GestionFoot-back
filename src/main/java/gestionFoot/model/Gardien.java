@@ -1,8 +1,12 @@
 package gestionFoot.model;
 import java.time.LocalDate;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity
 public class Gardien extends Joueur{
+	
 	
 	protected double tauxArret;
 	protected double tauxJeuPied;
@@ -13,6 +17,8 @@ public class Gardien extends Joueur{
 		this.tauxJeuPied = tauxJeuPied;
 		
 	}
+	public Gardien() {}
+	
 
 	public double getNbArret() {
 		return tauxArret;
