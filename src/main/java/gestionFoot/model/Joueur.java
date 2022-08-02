@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public abstract class Joueur extends Personne {
@@ -15,6 +16,10 @@ public abstract class Joueur extends Personne {
 	protected double technique;
 	protected double tactique;
 	protected double mental;
+	
+	@OneToOne
+	protected Equipe equipe;
+	
 	
 	
 	public Joueur(String nom, String prenom, LocalDate naissance, double physique, double technique, double tactique, double mental){
@@ -57,7 +62,12 @@ public abstract class Joueur extends Personne {
 	public void setMental(double mental) {
 		this.mental = mental;
 	}
-	
+	public Equipe getEquipe() {
+		return equipe;
+	}
+	public void setEquipe(Equipe equipe) {
+		this.equipe = equipe;
+	}
 	
 
 }
