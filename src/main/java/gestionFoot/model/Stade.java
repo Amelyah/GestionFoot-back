@@ -13,19 +13,16 @@ public class Stade {
 	
 	@Id
 	@Column(length = 100, nullable = false, unique = false)
-	@OneToOne
 	private String nom;
 	
 	
 	@Column(length = 6, nullable = false, unique = false)
-	@OneToOne
 	private String capacite;
 	
 	@Embedded // erreur a partir de la classe addresse.
 	private String adresse;
 	
 	@Column(length = 10, nullable = false, unique = false)
-	@OneToOne
 	private double ambiance;
 	
 	

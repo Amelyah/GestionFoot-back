@@ -13,11 +13,9 @@ public class Milieu extends Joueur {
 	
 	
 	@Column(length = 10, nullable = false, unique = false)
-	@ManyToOne
 	private double tauxEspace;
 	
 	@Column(length = 10, nullable = false, unique = false)
-	@ManyToOne
 	private double tauxTransmissionAttaquant;
 
 	public Milieu(String nom, String prenom, LocalDate naissance, double physique, double technique, double tactique,
