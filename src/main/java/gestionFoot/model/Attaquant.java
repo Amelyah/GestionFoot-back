@@ -20,6 +20,8 @@ public class Attaquant extends Joueur {
 		this.tauxAssist = tauxAssist;
 		this.tauxBut = tauxBut;
 	}
+	public Attaquant() {
+	}
 
 	public double getTauxAssist() {
 		return tauxAssist;

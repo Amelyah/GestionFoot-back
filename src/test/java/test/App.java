@@ -6,10 +6,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+
 import gEvent.context.Singleton;
 import gEvent.model.Admin;
 import gEvent.model.Adresse;
 import gEvent.model.User;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import gestionFoot.model.Arbitre;
 import gestionFoot.model.Attaquant;
 import gestionFoot.model.Defenseur;
@@ -19,6 +25,8 @@ import gestionFoot.model.Gardien;
 import gestionFoot.model.Joueur;
 import gestionFoot.model.Match;
 import gestionFoot.model.Milieu;
+import gestionFoot.model.Pays;
+import gestionFoot.model.Personne;
 import gestionFoot.model.Stade;
 
 public class App {
@@ -269,6 +277,11 @@ public class App {
 		Gardien vanDerSar = new Gardien("Van Der","Sar",LocalDate.parse("1980-05-11"),60,80.5,67,80,0,0);
 		Gardien loris = new Gardien("Loris","Hugo",LocalDate.parse("1992-05-11"),40,50.5,70,80,0,0);
 
+		Defenseur mendy = new Defenseur("Mendy","Ferland",LocalDate.parse("1995-06-08"),79.1,65.4,90.3,44.9,0,59.7);	
+		Defenseur kimpembe = new Defenseur("Presnel","Kimpembe",LocalDate.parse("1995-04-25"),0.5,0.4,0.7,0.8,0,25.0);	
+		Defenseur Maguire = new Defenseur("Harry","Maguire",LocalDate.parse("1995-04-25"),0.5,0.4,0.7,0.8,0,25.9);
+		
+		
 		Attaquant neymar = new Attaquant ("neymar","da Silva Santos Júnior",LocalDate.parse("1992-02-05"),0.7,0.94,0.65,0.45,15,25);
 		Attaquant Cr7 = new Attaquant ("Cristiano","Ronaldo",LocalDate.parse("1985-02-05"),0.5,0.7,0.95,0.68,5,30);
 		Attaquant Benzema = new Attaquant ("Karim","Benzema",LocalDate.parse("1987-12-19"),0.8,0.8,0.8,0.7,25,10);
@@ -302,15 +315,54 @@ public class App {
 		List<Joueur> listeJoueurMaurice = new ArrayList();
 		Collections.addAll(listeJoueurMaurice,Cr7,dybala,Maguire,loris);
 		
-		Equipe equipe1 = new Equipe("France","Bleu",3,listeJoueur1,mourinho);
-		Equipe equipe2 = new Equipe("Belgique","Rouge",2,listeJoueurBelgique,ancelotti);
+		Equipe equipe1 = new Equipe(Pays.France,"Bleu",3,listeJoueur1,mourinho);
+		Equipe equipe2 = new Equipe(Pays.Allemagne,"Rouge",2,listeJoueurBelgique,ancelotti);
 		
 		
 		
-		Match match = new Match(orsato,equipe1,equipe2,Anfield);
+		//Match match = new Match(orsato,equipe1,equipe2,Anfield);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceJPA-eshop");
+		EntityManager em = emf.createEntityManager();
 		
 		
-	
+		
+		em.getTransaction().begin();
+		em.persist(mendy);
+		em.persist(kimpembe);
+		em.persist(Maguire);
+		
+		em.persist(courtois);
+		em.persist(vanDerSar);
+		em.persist(loris);
+		
+		em.persist(neymar);
+		em.persist(Cr7);
+		em.persist(Benzema);
+		
+		em.persist(pogba);
+		em.persist(dybala);
+		em.persist(pirlo);
+		
+		em.persist(mourinho);
+		em.persist(ancelotti);
+
+		em.persist(orsato);
+		em.persist(turpin);
+		
+		em.persist(equipe1);
+		em.persist(equipe2);
+		
+		
+		em.getTransaction().commit();
+		
+		em.close();
+		
+		//em.persist(fournisseur2);
+		//em.persist(p1);
+		//em.persist(p2);
+		//em.persist(achat1);
+		
+		
 		
 		
 		menuUser();

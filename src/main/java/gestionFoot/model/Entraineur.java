@@ -30,6 +30,8 @@ public class Entraineur extends Personne {
 		this.maitriseTactique = maitriseTactique;
 	}
 
+	public Entraineur() {}
+	
 	public double getPedagogie() {
 		return pedagogie;
 	}

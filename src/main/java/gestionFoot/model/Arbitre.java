@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+<<<<<<< HEAD
 import javax.persistence.OneToMany;
+=======
+>>>>>>> MappingMohammed
 
 @Entity
 public class Arbitre extends Personne {
@@ -22,7 +25,8 @@ public class Arbitre extends Personne {
 		super(nom,prenom,naissance);
 		this.impartialite = impartialite;
 	}
-
+	public Arbitre() {}
+	
 	public double getImpartialite() {
 		return impartialite;
 	}

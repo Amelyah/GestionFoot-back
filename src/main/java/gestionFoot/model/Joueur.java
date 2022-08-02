@@ -1,12 +1,26 @@
 package gestionFoot.model;
 import java.time.LocalDate;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
 public abstract class Joueur extends Personne {
 	
 	protected double physique;
 	protected double technique;
 	protected double tactique;
 	protected double mental;
+	
+	@OneToOne
+	protected Equipe equipe;
+	
+	
 	
 	public Joueur(String nom, String prenom, LocalDate naissance, double physique, double technique, double tactique, double mental){
 		super(nom, prenom, naissance);
@@ -15,6 +29,7 @@ public abstract class Joueur extends Personne {
 		this.tactique = tactique;
 		this.mental = mental;
 	}
+	public Joueur() {}
 
 	public double getPhysique() {
 		return physique;
@@ -47,7 +62,12 @@ public abstract class Joueur extends Personne {
 	public void setMental(double mental) {
 		this.mental = mental;
 	}
-	
+	public Equipe getEquipe() {
+		return equipe;
+	}
+	public void setEquipe(Equipe equipe) {
+		this.equipe = equipe;
+	}
 	
 
 }
