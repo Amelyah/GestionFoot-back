@@ -6,6 +6,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import gEvent.context.Singleton;
+import gEvent.model.Admin;
+import gEvent.model.Adresse;
+import gEvent.model.User;
 import gestionFoot.model.Arbitre;
 import gestionFoot.model.Attaquant;
 import gestionFoot.model.Defenseur;
@@ -19,9 +23,9 @@ import gestionFoot.model.Stade;
 
 public class App {
 	
-	
-	
-	/************ FONCTIONS DE SAISIE ************/
+	/*********************************************/
+	/*          FONCTIONS DE SAISIE              */
+	/*********************************************/
 	
 	public static int saisieInt(String msg) 
 	{
@@ -55,13 +59,206 @@ public class App {
 
 	
 	
-	/************ FONCTIONS DE MENUS ************/
-	
-	
-	
-	
-	
+	/*********************************************/
+	/*            FONCTIONS DE MENUS             */
+	/*********************************************/
 
+	public static void menuBegin() 
+	{
+		System.out.println("\n*********************************************");
+		System.out.println("*              FOOTBALL MANAGER             *");
+		System.out.println("*********************************************");
+		
+		System.out.println("\n************************");
+		System.out.println("*    Menu principal    *");
+		System.out.println("************************");
+		
+		System.out.println("1- Se connecter");
+		System.out.println("2- Inscription");
+		System.out.println("3- Stop");
+
+		int choix = saisieInt("\nQue souhaites-tu faire ?");
+
+
+		switch(choix) 
+		{
+		case 1 : connection();break;
+		case 2 : inscription();break;
+		//case 3 :Singleton.getInstance().getEmf().close(); System.exit(0);break;
+		}
+		menuBegin();
+	}
+	
+	public static void inscription() {
+		
+		System.out.println("\n************************");
+		System.out.println("*      INSCRIPTION     *");
+		System.out.println("************************");
+		System.out.println("Tu aimes le football et tu as l'esprit manager ? Tu aimes tout ce qui est tactique et statistique ? ");
+		System.out.println("Renseignes quelques informations sur toi pour pouvoir commencer\n\n");
+		
+		String login = saisieString("Ton login :");
+		String password = saisieString("Ton password :");
+		String nom = saisieString("Ton nom : ");
+		String prenom = saisieString("Ton prenom : ");
+		String naissance = saisieString("Ta date de naissance : ");
+
+
+		/*User u = new User(login,password,nom,prenom,LocalDate.parse(naissance));
+		daoC.save(u);
+		System.out.println("Nous t'avons bien inscrit ! A toi de jouer ! ");
+		
+		String choix = saisieString("Souhaites-tu commencer à jouer ? (o/n)");
+		
+		if(choix.equals("o"){
+		 connection();
+		}
+		*/
+		
+		
+
+	}
+	
+	public static void connection() 
+	{
+		System.out.println("\n************************");
+		System.out.println("*      CONNEXION      *");
+		System.out.println("************************");
+		
+		/* Si l'utilisateur a déjà créer une équipe
+		System.out.println("Bon retour sur Football Manager, n'oublies pas d'utiliser tes points du jour (s'il t'en reste) \npour faire evoluer ton équipe"
+				+ " afin de rivaliser avec les autres adversaires\n\n");
+		*/
+		
+		String login = saisieString("Ton login :");
+		String password = saisieString("Ton password :");
+		/*connected = daoC.seConnecter(login, password);
+
+		if(connected instanceof User) {
+			if(connected n'a pas encore d'équipe) {
+				menuUserBeginner();
+			}else {
+				menuUser();
+		}else {
+			System.out.println("Oups! Ton login ou ton mot de passe n'est pas correct");
+			String choix = saisieString("Souhaites-tu réessayer ?");
+			
+			if(choix.equals("o"){
+		 		connection();
+			}else { 
+				System.out.println("À plus tard sur Football Manager !");
+			}
+		}*/
+	}
+	
+	public static void menuUserBeginner() {
+		System.out.println("\n************************************");
+		System.out.println("*      "
+		//+connected.getLogin()
+				+" - MENU PRINCIPAL      *");
+		System.out.println("************************************");
+		System.out.println("1 - Je crée mon équipe");
+		System.out.println("2 - Voir le guide d'utilisation de FM");
+		System.out.println("4 - Me deconnecter");
+
+		int choix = saisieInt("\nQue souhaites-tu faire ?");
+		
+		/*switch(choix) 
+		{
+		case 1 : createMyTeam(); break;
+		case 2 : showFMUserManual(); break;
+		case 3 : menuBegin(); break;
+		}
+		menuUser();*/
+	}
+	
+	public static void menuUser() {
+		System.out.println("\n************************************");
+		System.out.println("*      "
+		//+connected.getLogin()
+				+" - MENU PRINCIPAL      *");
+		System.out.println("************************************");
+		System.out.println("1 - Je gère mon équipe");
+		System.out.println("2 - Voir toutes les matchs gagnés");
+		System.out.println("3 - Voir le guide d'utilisation de FM");
+		System.out.println("4 - Me deconnecter");
+
+		int choix = saisieInt("\nQue souhaites-tu faire ?");
+		
+		/*switch(choix) 
+		{
+		case 1 : manageMyTeam(); break;
+		case 2 : showFootballMatchWon(); break;
+		case 3 : showFMUserManual(); break;
+		case 4 : showParticipations(); break;
+		case 5 : menuBegin(); break;
+		}
+		menuUser();*/
+	}
+	
+	public static void createMyTeam() {
+		
+		// Affichage d'une liste des joueurs existants
+		
+		// Permettre au user de créer son propre joueur
+		
+	}
+	
+	public static void manageMyTeam() {}
+	
+	public static List<Match> showFootballMatchWon() { return null;}
+	
+	public static void showFMUserManual() {
+		
+		// Page HTML qui spécifiera les règles du jeu
+		
+		System.out.println("\n************************************");
+		System.out.println("*     GUIDE D'UTILISATION DE FM     *");
+		System.out.println("************************************\n\n");
+		
+		System.out.println("Bienvenue dans Football Manager !\n\n"
+				+ "Laisses-nous deviner ? Tu aimes le football ? "
+				+ "\nEt tu aimerais pouvoir manager ta propre équipe ? "
+				+ "\nMais tu ne sais pas comment t'y prendre ?\n"
+				+ "Permets-nous de t'expliquer un peu le fonctionnement !\n\n");
+		
+		System.out.println("******  \\  Les objectifs  \\  ******\n\n");
+		
+		System.out.println("Tu vas pouvoir créer ta propre équipe de joueurs, "
+				+ "et jouer le rôle de l'entraineur afin de pouvoir booster ton équipe"
+				+ "lorsqu'elle affrontra d'autres équipes adversaires. Le but est de"
+				+ "maintenir et faire évoluer le plus possible ton équipe grâce aux matchs"
+				+ "que tu auras gagnés et également aux points qui te seront donnés chaque jour.\n\n");
+		
+		System.out.println("À la création de ton équipe, tu pourras choisir le pays qui tu voudras "
+				+ "représenter parmi une liste.\n\n");
+		
+		System.out.println("Une fois ton équipe créée, tu pourras gérer :"
+				+ "- la pratique d'entraînement"
+				+ "- le coaching de ton équipe en début de match et en mi-temps"
+				+ "- l'évolution des statistiques de tes joueurs"
+				+ "- démissioner car tu as décidé que manager était trop dur\n\n");
+		
+		System.out.println("Un match dure X sec/min. L'arbitre est choisi au hasard, qui peut "
+				+ "faire preuve, plus ou moins, d'impartialité. Ce sera toi et ta chance !\n"
+				+ "Le stade où sera joué le match aura une ambiance plus ou moins bonne, ce qui pourra"
+				+ "impacter le jeu de ton équipe.\n"
+				+ "À la mi-temps, il te sera possible de coacher ton équipe si tu vois qu'elle "
+				+ "a besoin d'être motivée ou si tu veux, tout simplement, continuer à l'encourager.\n"
+				+ "Attention ! Si tu prends un match, une sanction sera appliquée à ton équipe, et à "
+				+ "l'entraîneur que tu incarnes.\n\n");
+		
+		System.out.println("À toi de jouer et de permettre à ton équipe d'atteindre le haut du classement de Football Manager !");
+	}
+	
+	
+	
+	
+	
+	/*********************************************/
+	/*            PROGRAMME PRINCIPAL            */
+	/*********************************************/
+	
 	public static void main(String[] args) {
 		
 		Arbitre orsato = new Arbitre("Orsato","Daniele",LocalDate.parse("1975-11-23"),63.0);
@@ -116,7 +313,7 @@ public class App {
 	
 		
 		
-		
+		menuUser();
 		
 		// Interface de connexion/enscription
 		// Possibilité de choisir des perso déjà créer ou en créer d'autres

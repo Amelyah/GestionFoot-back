@@ -1,7 +1,10 @@
 package gestionFoot.model;
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
+@Entity
 public class Entraineur extends Personne {
 	
 	private double pedagogie;
@@ -9,6 +12,13 @@ public class Entraineur extends Personne {
 	private double ecoute;
 	private double maitriseTechnique;
 	private double maitriseTactique;
+	
+	@OneToOne
+	private Equipe equipe;
+	
+	
+	public Entraineur() {
+	}
 	
 	public Entraineur(String nom, String prenom, LocalDate naissance, double pedagogie, double experience,
 			double ecoute, double maitriseTechnique, double maitriseTactique) {
@@ -62,16 +72,13 @@ public class Entraineur extends Personne {
 
 	@Override
 	public String toString() {
-		return "Entraineur [pedagogie=" + pedagogie + ", experience=" + experience + ", ecoute=" + ecoute
-				+ ", maitriseTechnique=" + maitriseTechnique + ", maitriseTactique=" + maitriseTactique + "]";
+		return "Entraineur [nom=" + nom + ", prenom=" + prenom + ", naissance=" + naissance + ", pedagogie=" + pedagogie
+				+ ", experience=" + experience + ", ecoute=" + ecoute + ", maitriseTechnique=" + maitriseTechnique
+				+ ", maitriseTactique=" + maitriseTactique + ", equipe=" + equipe + "]";
 	}
-	
-	
-	public void coachingEquipe(Equipe e,int pedagogie, int ecoute, int maitriseTechnique, int maitriseTactique  ) {
+
+	public void coachingEquipe(Equipe e, int pedagogie, int ecoute, int maitriseTechnique, int maitriseTactique) {
 		
 	}
-
-
-
 
 }
