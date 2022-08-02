@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-<<<<<<< HEAD
 import javax.persistence.OneToMany;
-=======
->>>>>>> MappingMohammed
+
 
 @Entity
 public class Arbitre extends Personne {
@@ -16,10 +14,8 @@ public class Arbitre extends Personne {
 	
 	@OneToMany
 	private List<Match> listeMatchArbitres = new ArrayList();
+
 	
-	
-	public Arbitre() {
-	}
 	
 	public Arbitre(String nom, String prenom, LocalDate naissance, double impartialite){
 		super(nom,prenom,naissance);

@@ -43,7 +43,6 @@ public class Equipe {
 	public Equipe() {}
 	
 	public Equipe(Pays pays, String couleur, int classement, List<Joueur> listJoueur,
-	public Equipe(String pays, String couleur, int classement, List<Joueur> listJoueur,
 			Entraineur entraineur) {
 		super();
 		this.pays = pays;

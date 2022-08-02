@@ -17,9 +17,6 @@ public class Entraineur extends Personne {
 	private Equipe equipe;
 	
 	
-	public Entraineur() {
-	}
-	
 	public Entraineur(String nom, String prenom, LocalDate naissance, double pedagogie, double experience,
 			double ecoute, double maitriseTechnique, double maitriseTactique) {
 		super(nom, prenom, naissance);

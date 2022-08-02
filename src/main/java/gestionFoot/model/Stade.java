@@ -20,14 +20,14 @@ public class Stade {
 	private String capacite;
 	
 	@Embedded // erreur a partir de la classe addresse.
-	private String adresse;
+	private Adresse adresse;
 	
 	@Column(length = 10, nullable = false, unique = false)
 	private double ambiance;
 	
 	
 
-	public Stade(String nom, String capacite, String adresse, double ambiance) {
+	public Stade(String nom, String capacite, Adresse adresse, double ambiance) {
 		this.nom = nom;
 		this.capacite = capacite;
 		this.adresse = adresse;
@@ -39,6 +39,18 @@ public class Stade {
 
 	
 	
+
+	public String getCapacite() {
+		return capacite;
+	}
+
+	public void setCapacite(String capacite) {
+		this.capacite = capacite;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
 
 	public String getNom() {
 		return nom;
@@ -56,7 +68,7 @@ public class Stade {
 		this.capacite = capacité;
 	}
 
-	public void setAdresse(String adresse) {
+	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
 
@@ -69,10 +81,7 @@ public class Stade {
 		this.ambiance = ambiance;
 	}
 	
-	@Overrides
-	public String toString() {
-		return "Stade [nom=" + nom + ", capacite=" + capacite + ", adresse=" + adresse + ", ambiance=" + ambiance + "]";
-	}
+	
 
 	
 	

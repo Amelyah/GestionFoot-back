@@ -6,16 +6,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-
-import gEvent.context.Singleton;
-import gEvent.model.Admin;
-import gEvent.model.Adresse;
-import gEvent.model.User;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import gestionFoot.model.Adresse;
 import gestionFoot.model.Arbitre;
 import gestionFoot.model.Attaquant;
 import gestionFoot.model.Defenseur;
@@ -289,19 +284,16 @@ public class App {
 		Milieu pogba = new Milieu ("Paul","Pogba",LocalDate.parse("1993-05-15"),0.76,0.79,0.5,0.8,20,10);
 		Milieu dybala = new Milieu ("Paulo","Dybala",LocalDate.parse("1993-11-15"),0.5,0.4,0.7,0.8,0.5,25);
 		Milieu pirlo = new Milieu ("Andrea","Pirlo",LocalDate.parse("1979-05-19"),0.5,0.4,0.7,0.8,0.5,25);
-		
-		
-		Defenseur mendy = new Defenseur("Mendy","Ferland",LocalDate.parse("1995-06-08"),79.1,65.4,90.3,44.9,0,59.7);	
-		Defenseur kimpembe = new Defenseur("Presnel","Kimpembe",LocalDate.parse("1995-04-25"),0.5,0.4,0.7,0.8,0,25.0);	
-		Defenseur Maguire = new Defenseur("Harry","Maguire",LocalDate.parse("1995-04-25"),0.5,0.4,0.7,0.8,0,25.9);
-		
 
+		Adresse a1 = new Adresse("OldTrafford", "75000", "Sir Matt Busby Way","Manchester");
+		Adresse a2 = new Adresse("StadeDeLumiere", "60000", "10 Av. Simone Veil", "69150 Decines-Charpieu");
+		Adresse a3 = new Adresse("StadiumToulouse", "45000", "1 All. Gabriel Bienes", "31000 Toulouse");
+		Adresse a4 = new Adresse("AnjalayIleMaurice", "16000", "Mapou"," Maurice AnjalayIleMaurice");
 		
-		Stade 	OldTrafford = new Stade("OldTrafford", "75000", "Sir Matt Busby Way,Manchester",90.0);
-		Stade 	Anfield = new Stade("Anfield", "80000", "Anfield Rd, Anfield, Liverpool L4 0TH, United Kingdom",95.0);
-		Stade 	StadeDeLumiere= new Stade("StadeDeLumiere", "60000", "10 Av. Simone Veil, 69150 Decines-Charpieu",80.0);
-		Stade 	StadiumToulouse= new Stade("StadiumToulouse", "45000", "1 All. Gabriel Bienes, 31000 Toulouse",70.0);
-		Stade 	AnjalayIleMaurice= new Stade("AnjalayIleMaurice", "16000", "Mapou, Maurice" , 60.0);
+		Stade 	Anfield = new Stade(" ", " ",a1,95.0);
+		Stade 	StadeDeLumiere= new Stade(" ", " ",a2,80.0);
+		Stade 	StadiumToulouse= new Stade(" ", " ",a3,70.0);
+		Stade 	AnjalayIleMaurice= new Stade(" ", " ",a4, 60.0);
 		
 		Entraineur mourinho = new Entraineur("José","Mourinho",LocalDate.parse("1965-04-25"),0.6,0.89,0.1,0.90,0.99);
 		Entraineur ancelotti = new Entraineur("Ancelotti","Carlo",LocalDate.parse("1965-04-25"),0.6,0.89,0.1,0.90,0.99);

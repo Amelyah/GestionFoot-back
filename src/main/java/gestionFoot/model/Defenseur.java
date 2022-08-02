@@ -18,7 +18,6 @@ public class Defenseur extends Joueur {
 		this.tauxInterception = tauxInterception;
 		this.capaciteRelance = capaciteRelance;
 	}
-	public Defenseur() {}
 
 	public double getTauxInterception() {
 		return tauxInterception;
