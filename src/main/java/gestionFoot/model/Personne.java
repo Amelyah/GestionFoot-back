@@ -2,17 +2,28 @@ package gestionFoot.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE )
 public abstract class Personne {
+	@Id
 	protected String nom;
 	protected String prenom;
 	protected LocalDate naissance;
-	
+		
 	public Personne(String nom, String prenom, LocalDate naissance){
 		this.nom = nom;
 		this.prenom = prenom;
 		this.naissance = naissance;
 		
-	}
+	}	
+	
+	public Personne(){	}
 
 	public String getNom() {
 		return nom;
