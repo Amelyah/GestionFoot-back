@@ -1,8 +1,19 @@
 package gestionFoot.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Score {
 	
+	
+	
+	@Id
+	@Column(length = 10, nullable = false, unique = false)
 	private int scoreDom;
+	
+	@Column(length = 10, nullable = false, unique = false)
 	private int scoreExt;
 	
 	
@@ -11,6 +22,8 @@ public class Score {
 		this.scoreDom = scoreDom;
 		this.scoreExt = scoreExt;
 	}
+	
+	public Score() {}
 	
 	public int getScoreDom() {
 		return scoreDom;
@@ -27,6 +40,10 @@ public class Score {
 	public void setScoreExt(int scoreExt) {
 		this.scoreExt = scoreExt;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Score [scoreDom=" + scoreDom + ", scoreExt=" + scoreExt + "]";
+	}
+
 }
