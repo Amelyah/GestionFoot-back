@@ -313,7 +313,7 @@ public class App {
 		
 		
 		//Match match = new Match(orsato,equipe1,equipe2,Anfield);
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceJPA-eshop");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceJPA");
 		EntityManager em = emf.createEntityManager();
 		
 		
@@ -357,20 +357,13 @@ public class App {
 		
 		
 		
-		menuUser();
+		//menuUser();
 		
 		// Interface de connexion/enscription
 		// Possibilité de choisir des perso déjà créer ou en créer d'autres
 		// par semaine : nombre de point, choix d'attribution de ces points 
 		// via une méthodes dans l'objet Entraineur, qui va permettre de redistribuer ces points
 	
-		 
-		
-		
-
-		
-		
-
 	}
 
 }

@@ -40,6 +40,14 @@ public class Milieu extends Joueur {
 	public void setTauxTransmissionAttaquant(double tauxTransmissionAttaquant) {
 		this.tauxTransmissionAttaquant = tauxTransmissionAttaquant;
 	}
+
+	@Override
+	public String toString() {
+		return "Milieu [tauxEspace=" + tauxEspace + ", tauxTransmissionAttaquant=" + tauxTransmissionAttaquant
+				+ ", physique=" + physique + ", technique=" + technique + ", tactique=" + tactique + ", mental="
+				+ mental + ", equipe=" + equipe + ", id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", naissance="
+				+ naissance + "]";
+	}
 	
 	
 

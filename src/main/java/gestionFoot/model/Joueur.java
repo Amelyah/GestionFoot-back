@@ -68,6 +68,12 @@ public abstract class Joueur extends Personne {
 	public void setEquipe(Equipe equipe) {
 		this.equipe = equipe;
 	}
+	@Override
+	public String toString() {
+		return "Joueur [physique=" + physique + ", technique=" + technique + ", tactique=" + tactique + ", mental="
+				+ mental + ", equipe=" + equipe + ", id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", naissance="
+				+ naissance + "]";
+	}
 	
 
 }

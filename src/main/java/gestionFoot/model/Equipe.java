@@ -1,9 +1,7 @@
 package gestionFoot.model;
 
-import java.util.HashMap;
 import java.util.List;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -16,6 +14,8 @@ import javax.persistence.OneToOne;
 @Entity
 public class Equipe {
 	
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -25,7 +25,7 @@ public class Equipe {
 	
 	private int classement;
 
-	@OneToMany
+	@OneToMany(mappedBy="equipe")
 	private List<Joueur> listJoueur ;
 	
 	@OneToOne
@@ -33,7 +33,11 @@ public class Equipe {
 	
 	private String couleur;
 	
-	private transient HashMap<Match,Score> historique;
+	@OneToMany(mappedBy = "equipeDom")
+	private List<Match> dom;
+	
+	@OneToMany(mappedBy = "equipeExt")
+	private List<Match> ext;
 	
 	private double cohesion;
 	private double jeux;
@@ -100,13 +104,7 @@ public class Equipe {
 		this.couleur = couleur;
 	}
 
-	public HashMap<Match, Score> getHistorique() {
-		return historique;
-	}
-
-	public void setHistorique(HashMap<Match, Score> historique) {
-		this.historique = historique;
-	}
+	
 
 	public double getCohesion() {
 		return cohesion;
@@ -132,7 +130,12 @@ public class Equipe {
 		this.pressing = pressing;
 	}
 
-
+	@Override
+	public String toString() {
+		return "Equipe [id=" + id + ", pays=" + pays + ", classement=" + classement + ", listJoueur=" + listJoueur
+				+ ", entraineur=" + entraineur + ", couleur=" + couleur + ", dom=" + dom + ", ext=" + ext
+				+ ", cohesion=" + cohesion + ", jeux=" + jeux + ", pressing=" + pressing + "]";
+	}
 	
 
 }

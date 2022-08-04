@@ -12,9 +12,10 @@ public class Arbitre extends Personne {
 	
 	private double impartialite;
 	
-	@OneToMany
-	private List<Match> listeMatchArbitres = new ArrayList();
-
+	@OneToMany(mappedBy="arbitre")
+	private List<Match> listeMatchArbitres;
+	
+	 
 	
 	
 	public Arbitre(String nom, String prenom, LocalDate naissance, double impartialite){
@@ -30,11 +31,11 @@ public class Arbitre extends Personne {
 	public void setImpartialite(double impartialite) {
 		this.impartialite = impartialite;
 	}
-
 	@Override
 	public String toString() {
-		return "Arbitre [nom=" + nom + ", prenom=" + prenom + ", naissance=" + naissance + ", impartialite="
-				+ impartialite + ", listeMatchArbitres=" + listeMatchArbitres + "]";
+		return "Arbitre [impartialite=" + impartialite + ", listeMatchArbitres=" + listeMatchArbitres + ", id=" + id
+				+ ", nom=" + nom + ", prenom=" + prenom + ", naissance=" + naissance + "]";
 	}
 
+	
 }

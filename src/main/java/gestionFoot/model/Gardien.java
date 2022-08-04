@@ -32,10 +32,16 @@ public class Gardien extends Joueur{
 		return tauxArret;
 	}
 
+	
 	public void setJeuPied(int jeuPied) {
 		this.tauxArret = jeuPied;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Gardien [tauxArret=" + tauxArret + ", tauxJeuPied=" + tauxJeuPied + ", physique=" + physique
+				+ ", technique=" + technique + ", tactique=" + tactique + ", mental=" + mental + ", equipe=" + equipe
+				+ ", id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", naissance=" + naissance + "]";
+	}
 
 }

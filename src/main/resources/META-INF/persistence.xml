@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
 	<!-- persistence-unit = une connexion à une BDD, si plusieurs BDD, plusieurs persistence-unit -->
-	<persistence-unit name="persistenceJPA-eshop"
+	<persistence-unit name="persistenceJPA"
 		transaction-type="RESOURCE_LOCAL">
 		<!-- implementation de JPA -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
@@ -21,7 +21,7 @@
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<!-- validate, create, update -->
-			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 		</properties>

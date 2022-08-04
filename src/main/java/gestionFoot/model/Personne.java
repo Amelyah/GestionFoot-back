@@ -1,6 +1,8 @@
 package gestionFoot.model;
 
 import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +20,12 @@ public abstract class Personne {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	protected Integer id;
 	
+	@Column(columnDefinition = "VARCHAR(25)", nullable=false)
 	protected String nom;
+	
+	@Column(columnDefinition = "VARCHAR(25)",nullable=false)
 	protected String prenom;
+	
 	protected LocalDate naissance;
 	
 	public Personne(String nom, String prenom, LocalDate naissance){
@@ -55,5 +61,11 @@ public abstract class Personne {
 		this.naissance = naissance;
 	}
 
+	@Override
+	public String toString() {
+		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", naissance=" + naissance + "]";
+	}
+
+	
 	
 }

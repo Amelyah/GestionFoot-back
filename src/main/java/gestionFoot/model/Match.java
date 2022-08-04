@@ -3,109 +3,109 @@ package gestionFoot.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.OneToOne;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="rencontre")
 public class Match {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 	
-	@OneToOne
+	
+	@ManyToOne
 	private Arbitre arbitre;
 	
-	@OneToOne
-	private Equipe equipe1;
+	@ManyToOne
+	private Equipe equipeDom;
 	
-	@OneToOne
-	private Equipe equipe2;
+	@ManyToOne
+	private Equipe equipeExt;
 	
-	@OneToOne
+	@ManyToOne
 	private Stade stade;
 	
-	@OneToOne
-	private Score scoreDom;
 	
-	@OneToOne
-	private Score scoreExt;
+	private int scoreDom;
+
+	
+	private int scoreExt;
 	
 	private boolean fini = false;
 	//private Localisation loalisation;
 	
 	
-	public Match(Arbitre arbitre, Equipe equipe1, Equipe equipe2, Stade stade) {
-		super();
+	public Match(Arbitre arbitre, Equipe equipeDom, Equipe equipeExt, Stade stade) {
+
 		this.arbitre = arbitre;
-		this.equipe1 = equipe1;
-		this.equipe2 = equipe2;
+		this.equipeDom = equipeDom;
+		this.equipeExt = equipeExt;
 		this.stade = stade;
 	}
 	public Match() {}
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Arbitre getArbitre() {
 		return arbitre;
 	}
-	
 	public void setArbitre(Arbitre arbitre) {
 		this.arbitre = arbitre;
 	}
-	
-	public Equipe getEquipe1() {
-		return equipe1;
+	public Equipe getEquipeDom() {
+		return equipeDom;
 	}
-	
-	public void setEquipe1(Equipe equipe1) {
-		this.equipe1 = equipe1;
+	public void setEquipeDom(Equipe equipeDom) {
+		this.equipeDom = equipeDom;
 	}
-	
-	public Equipe getEquipe2() {
-		return equipe2;
+	public Equipe getEquipeExt() {
+		return equipeExt;
 	}
-	
-	public void setEquipe2(Equipe equipe2) {
-		this.equipe2 = equipe2;
+	public void setEquipeExt(Equipe equipeExt) {
+		this.equipeExt = equipeExt;
 	}
-	
 	public Stade getStade() {
 		return stade;
 	}
-	
 	public void setStade(Stade stade) {
 		this.stade = stade;
 	}
-	
-	public Score getScoreDom() {
+	public int getScoreDom() {
 		return scoreDom;
 	}
-	
-	public void setScoreDom(Score scoreDom) {
+	public void setScoreDom(int scoreDom) {
 		this.scoreDom = scoreDom;
 	}
-	
-	public Score getScoreExt() {
+	public int getScoreExt() {
 		return scoreExt;
 	}
-	
-	public void setScoreExt(Score scoreExt) {
+	public void setScoreExt(int scoreExt) {
 		this.scoreExt = scoreExt;
 	}
-	
 	public boolean isFini() {
 		return fini;
 	}
-	
 	public void setFini(boolean fini) {
 		this.fini = fini;
 	}
+	public void revisionStatsEquipe(Equipe e ) {}
 	
-	
-	public void revisionStatsEquipe(Equipe e ) {
-		
-		
-		
-		
+	@Override
+	public String toString() {
+		return "Match [id=" + id + ", arbitre=" + arbitre + ", equipeDom=" + equipeDom + ", equipeExt=" + equipeExt
+				+ ", stade=" + stade + ", scoreDom=" + scoreDom + ", scoreExt=" + scoreExt + ", fini=" + fini + "]";
 	}
+		
+		
+		
 
 }
