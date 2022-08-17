@@ -1,4 +1,4 @@
-package gestionFoot.dao;
+package gestionFoot.repository;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
@@ -17,14 +17,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import gestionFoot.config.AppConfig;
 import gestionFoot.model.Attaquant;
+import gestionFoot.repository.AttaquantRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { AppConfig.class })
 @Transactional
-public class DaoJoueurTest {
+public class AttaquantRepositoryTest {
 	
 	@Autowired
-	private IDAOAttaquant daoAttaquant;
+	private AttaquantRepository daoAttaquant;
 	
 	
 	@Test
