@@ -1,8 +1,9 @@
 package gestionFoot.dao;
 
-import gestionFoot.dao.IDAO;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import gestionFoot.model.Arbitre;
 
-public interface IDAOArbitre extends IDAO<Arbitre,Integer> {
+public interface IDAOArbitre  extends JpaRepository<Arbitre, Integer> {
 
 }
