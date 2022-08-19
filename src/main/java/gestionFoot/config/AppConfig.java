@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:infos.properties")
-@EnableJpaRepositories("gestionFoot.dao")
+@EnableJpaRepositories("gestionFoot.repository")
 @ComponentScan(basePackages = {"gestionFoot.service"})
 public class AppConfig {
 

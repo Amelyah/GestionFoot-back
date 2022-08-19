@@ -1,13 +1,13 @@
 package gestionFoot.model;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Stade {
@@ -17,39 +17,41 @@ public class Stade {
 	private Integer id;
 	
 	
-	@Column(length = 100, nullable = false, unique = false)
+	@Column(length = 100, nullable = false)
 	private String nom;
 	
 	
-	@Column(length = 6, nullable = false, unique = false)
-	private String capacite;
+	@Column(nullable = false)
+	private Integer capacite;
 	
 	@Embedded // erreur a partir de la classe addresse.
 	private Adresse adresse;
 	
-	@Column(length = 10, nullable = false, unique = false)
+	@Column(length = 10)
 	private double ambiance;
+	
+	@Enumerated(EnumType.STRING)
+	private Pays pays;
 	
 	
 
-	public Stade(String nom, String capacite, Adresse adresse, double ambiance) {
+	public Stade(String nom, Integer capacite, Adresse adresse, double ambiance, Pays pays) {
 		this.nom = nom;
 		this.capacite = capacite;
 		this.adresse = adresse;
 		this.ambiance = ambiance;
+		this.pays = pays;
 	}
 	
 	public Stade() {	
 	}
 
-	
-	
 
-	public String getCapacite() {
+	public Integer getCapacite() {
 		return capacite;
 	}
 
-	public void setCapacite(String capacite) {
+	public void setCapacite(Integer capacite) {
 		this.capacite = capacite;
 	}
 
@@ -65,14 +67,6 @@ public class Stade {
 		this.nom = nom;
 	}
 
-	public String getCapacité() {
-		return capacite;
-	}
-
-	public void setCapacité(String capacité) {
-		this.capacite = capacité;
-	}
-
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
@@ -85,9 +79,22 @@ public class Stade {
 	public void setAmbiance(double ambiance) {
 		this.ambiance = ambiance;
 	}
-	
-	
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Pays getPays() {
+		return pays;
+	}
+
+	public void setPays(Pays pays) {
+		this.pays = pays;
+	}
 	
 	
 }
