@@ -6,8 +6,14 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 @Entity
 public abstract class Joueur extends Personne {
@@ -17,7 +23,7 @@ public abstract class Joueur extends Personne {
 	protected double tactique;
 	protected double mental;
 	
-	@OneToOne
+	@ManyToOne
 	protected Equipe equipe;
 	
 	

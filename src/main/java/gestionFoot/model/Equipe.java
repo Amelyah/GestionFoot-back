@@ -11,27 +11,42 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.deser.Deserializers.Base;
+
+import gestionFoot.jsonviews.JsonViews;
+
+
+
+
 @Entity
 public class Equipe {
 	
 	
-
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@JsonView(JsonViews.Base.class)
 	@Enumerated(EnumType.STRING)
 	private Pays pays ;
 	
+	@JsonView(JsonViews.Base.class)
 	private int classement;
 
+	@JsonView(JsonViews.EquipeWithJoueur.class)
 	@OneToMany(mappedBy="equipe")
 	private List<Joueur> listJoueur ;
 	
+	
+	@JsonView(JsonViews.Base.class)
 	@OneToOne
 	private Entraineur entraineur;
 	
+	@JsonView(JsonViews.Base.class)
 	private String couleur;
+	
 	
 	@OneToMany(mappedBy = "equipeDom")
 	private List<Match> dom;
@@ -39,8 +54,13 @@ public class Equipe {
 	@OneToMany(mappedBy = "equipeExt")
 	private List<Match> ext;
 	
+	@JsonView(JsonViews.Base.class)
 	private double cohesion;
+	
+	@JsonView(JsonViews.Base.class)
 	private double jeux;
+	
+	@JsonView(JsonViews.Base.class)
 	private double pressing;
 	
 	
@@ -56,6 +76,15 @@ public class Equipe {
 		this.entraineur = entraineur;
 	}
 
+	public Equipe(Pays pays, String couleur, int classement,
+			Entraineur entraineur) {
+		super();
+		this.pays = pays;
+		this.couleur = couleur;
+		this.classement = classement;
+		this.entraineur = entraineur;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
