@@ -11,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name="type_personne")
@@ -26,6 +31,8 @@ public abstract class Personne {
 	@Column(columnDefinition = "VARCHAR(25)",nullable=false)
 	protected String prenom;
 	
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
 	protected LocalDate naissance;
 	
 	public Personne(String nom, String prenom, LocalDate naissance){
@@ -36,6 +43,16 @@ public abstract class Personne {
 	}	
 	
 	public Personne(){	}
+	
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getNom() {
 		return nom;
