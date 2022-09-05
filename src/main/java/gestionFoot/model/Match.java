@@ -7,15 +7,20 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import gestionFoot.jsonviews.JsonViews;
+
 @Entity
 @Table(name="rencontre")
 public class Match {
 	
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	
+	@JsonView(JsonViews.MatchWithArbitre.class)
 	@ManyToOne
 	private Arbitre arbitre;
 	
@@ -28,14 +33,14 @@ public class Match {
 	@ManyToOne
 	private Stade stade;
 	
-	
+	@JsonView(JsonViews.Base.class)
 	private int scoreDom;
 
-	
+	@JsonView(JsonViews.Base.class)
 	private int scoreExt;
 	
+	@JsonView(JsonViews.Base.class)
 	private boolean fini = false;
-	//private Localisation loalisation;
 	
 	
 	public Match(Arbitre arbitre, Equipe equipeDom, Equipe equipeExt, Stade stade) {

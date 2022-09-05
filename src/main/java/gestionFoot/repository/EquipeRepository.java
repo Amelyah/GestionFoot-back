@@ -12,7 +12,15 @@ import gestionFoot.model.Equipe;
 public interface EquipeRepository extends JpaRepository<Equipe,Integer> {
 	
 	@Query("Select equipe from Equipe equipe join fetch equipe.listJoueur where equipe.id=:id")
-//	SELECT c from Competition c join fetch c.participants where c.id=:id
-	public Optional<Equipe> findEquipeWithJoueur(@Param("id") Integer  id);
+	public Optional<Equipe> findEquipeWithJoueurs(@Param("id") Integer  id);
+	
+	@Query("Select equipe from Equipe equipe join fetch equipe.dom where equipe.id=:id")
+	public Optional<Equipe> findEquipeWithMatchDom(@Param("id") Integer  id);
+	
+	@Query("Select equipe from Equipe equipe join fetch equipe.ext where equipe.id=:id")
+	public Optional<Equipe> findEquipeWithMatchExt(@Param("id") Integer  id);
 	
 }
+
+
+

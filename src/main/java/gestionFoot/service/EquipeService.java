@@ -21,8 +21,16 @@ public class EquipeService {
 	private EquipeRepository equipeRepo;
 	
 	
-	public Equipe getByIdWithJoueur(Integer id) {
-		return equipeRepo.findEquipeWithJoueur(id).orElseThrow(EquipeException::new);
+	public Equipe getByIdWithJoueurs(Integer id) {
+		return equipeRepo.findEquipeWithJoueurs(id).orElseThrow(EquipeException::new);
+	}
+	
+	public Equipe getByIdWithMatchDom(Integer id) {
+		return equipeRepo.findEquipeWithMatchDom(id).orElseThrow(EquipeException::new);
+	}
+	
+	public Equipe getByIdWithMatchExt(Integer id) {
+		return equipeRepo.findEquipeWithMatchExt(id).orElseThrow(EquipeException::new);
 	}
 	
 	public List<Equipe> getAll() {

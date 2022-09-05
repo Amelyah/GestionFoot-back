@@ -11,26 +11,33 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
+import gestionFoot.jsonviews.JsonViews;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name="type_personne")
 public abstract class Personne {
 	
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	protected Integer id;
 	
+	@JsonView(JsonViews.Base.class)
 	@Column(columnDefinition = "VARCHAR(25)", nullable=false)
 	protected String nom;
 	
+	@JsonView(JsonViews.Base.class)
 	@Column(columnDefinition = "VARCHAR(25)",nullable=false)
 	protected String prenom;
 	
+	@JsonView(JsonViews.Base.class)
 	@JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
 	protected LocalDate naissance;

@@ -10,17 +10,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import gestionFoot.jsonviews.JsonViews;
+
 @Entity
 public abstract class Joueur extends Personne {
 	
+	@JsonView(JsonViews.Base.class)
 	protected double physique;
+	
+	@JsonView(JsonViews.Base.class)
 	protected double technique;
+	
+	@JsonView(JsonViews.Base.class)
 	protected double tactique;
+	
+	@JsonView(JsonViews.Base.class)
 	protected double mental;
 	
 	@ManyToOne

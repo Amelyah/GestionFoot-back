@@ -6,10 +6,15 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import gestionFoot.jsonviews.JsonViews;
+
 
 @Entity
 public class Arbitre extends Personne {
 	
+	@JsonView(JsonViews.Base.class)
 	private double impartialite;
 	
 	@OneToMany(mappedBy="arbitre")
@@ -31,6 +36,15 @@ public class Arbitre extends Personne {
 	public void setImpartialite(double impartialite) {
 		this.impartialite = impartialite;
 	}
+	
+	public List<Match> getListeMatchArbitres() {
+		return listeMatchArbitres;
+	}
+	
+	public void setListeMatchArbitres(List<Match> listeMatchArbitres) {
+		this.listeMatchArbitres = listeMatchArbitres;
+	}
+	
 	@Override
 	public String toString() {
 		return "Arbitre [impartialite=" + impartialite + ", listeMatchArbitres=" + listeMatchArbitres + ", id=" + id

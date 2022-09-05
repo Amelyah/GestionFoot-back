@@ -35,7 +35,7 @@ public class Equipe {
 	@JsonView(JsonViews.Base.class)
 	private int classement;
 
-	@JsonView(JsonViews.EquipeWithJoueur.class)
+	@JsonView(JsonViews.EquipeWithJoueurs.class)
 	@OneToMany(mappedBy="equipe")
 	private List<Joueur> listJoueur ;
 	
@@ -47,12 +47,14 @@ public class Equipe {
 	@JsonView(JsonViews.Base.class)
 	private String couleur;
 	
-	
+	@JsonView(JsonViews.EquipeWithMatchDom.class)
 	@OneToMany(mappedBy = "equipeDom")
 	private List<Match> dom;
 	
+	@JsonView(JsonViews.EquipeWithMatchExt.class)
 	@OneToMany(mappedBy = "equipeExt")
 	private List<Match> ext;
+	
 	
 	@JsonView(JsonViews.Base.class)
 	private double cohesion;

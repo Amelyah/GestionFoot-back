@@ -15,6 +15,8 @@ public class Compte {
 	 private String login;
 	 
 	 private String password;
+	 
+	 private String mail;
 
 	public Compte(Integer id, String login, String password) {
 		super();
@@ -24,6 +26,7 @@ public class Compte {
 	}
 
 	public Compte() {}
+	
 	
 	public Integer getId() {
 		return id;
@@ -48,7 +51,14 @@ public class Compte {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	 
-	 
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	
 
 }
